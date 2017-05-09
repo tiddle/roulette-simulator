@@ -7,18 +7,9 @@ const addToResult = (resultNumber, historyOfResults, betResults) => {
     let output = {
         number: resultNumber,
         colour: rouletteCalculator.calculateColour(resultNumber),
-        // colour: 'red',
         even: rouletteCalculator.calculateEvenOrOdd(resultNumber),
         betResults
     };
-
-    // if(historyOfResults && !historyOfResults[historyOfResults.length - 1].highest) {
-    //     output.highest = 0;
-    // }
-
-    // if(historyOfResults && historyOfResults[historyOfResults.length - 1].highest < money) {
-    //     output.highest = money;
-    // }
 
     historyOfResults.push(output);
 
@@ -94,13 +85,26 @@ const simulateGame = (spins) => {
             }
         };
 
-        console.log('Result: ', result);
-        console.log(betResults);
-        console.log('Money: ', money);
+        console.log('Spin Result: ', result);
+        console.log();
+        console.log('Colour Result');
+        console.log('Did bet? ', betResults.colour.bet);
+        console.log('Amount ', betResults.colour.amount);
+        console.log('Winnings', betResults.colour.win);
+        console.log('Odd/Even Result');
+        console.log('Did bet? ', betResults.even.bet);
+        console.log('Amount ', betResults.even.amount);
+        console.log('Winnings', betResults.even.win);
+        console.log('Money Left: ', money);
+        console.log();
+        console.log('===================================');
+        console.log();
         addToResult(result, historyOfResults, betResults);
 
         if(money <= 0) {
             console.log('You lose everything');
+            console.log();
+            console.log('===================================');
             break;
         }
     }
