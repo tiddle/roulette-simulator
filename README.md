@@ -36,5 +36,7 @@ and if you lost that, then you would be at `$512`, which would be over your star
 on real tables as they generally have bet limits.
 
 
+## Usage
 
-
+`npm install`
+`npm start`
